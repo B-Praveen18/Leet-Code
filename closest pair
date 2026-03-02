@@ -1,0 +1,42 @@
+import  java.util.*;
+public class ClosestPair{
+   public static void main(String[] args){
+           Scanner in=new Scanner(System.in);
+       int[][] arr;
+       double[] a=new double[3];
+       arr=new int[3][2];
+       int m=0;
+       for(int i=0;i<3;i++) {
+           for(int j=0;j<2;j++) {
+                   System.out.print("enter element:");
+                   arr[i][j]=in.nextInt();
+           }
+       }
+
+       double x1,y1,x2,y2,d = Integer.MAX_VALUE;
+       for(int i=0;i<arr.length-1;i++) {
+           for(int j=i+1;j<arr.length;j++) {
+                   x1=arr[i][0];
+                   y1=arr[i][1];
+                   x2=arr[j][0];
+                   y2=arr[j][1];
+                   d=Math.sqrt(Math.pow((x2-x1),2)+Math.pow((y2-y1),2));
+                   a[m++]=d;
+           }
+       }
+       int min=0;
+       for(int i=0;i<3;i++) {
+           if(a[i]<a[min]) {
+                   min=i;
+           }
+       }
+       System.out.println("closest Pair value:"+a[min]);
+       System.out.print("Closest pair:");
+       for(int i=min;i<=min+1;i++) {
+           for(int j=0;j<2;j++) {
+                   System.out.print(arr[i][j]+" ");
+           }System.out.print("     ");
+       }
+       System.out.println();
+   }
+}

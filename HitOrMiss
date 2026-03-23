@@ -1,0 +1,15 @@
+my=input("my string:")
+guess=input("guess string:")
+h=0
+n=0
+arr=[]
+for i in range(len(my)):
+   if my[i]==guess[i]:
+      h=h+1
+   elif (int(my[i])-int(guess[i]))==1 or (int(my[i])-int(guess[i]))==-1:
+      if my[i] not in arr:
+         arr.append(my[i])
+         n=n+1
+   else:
+      continue
+print(h,'H',n,'N')

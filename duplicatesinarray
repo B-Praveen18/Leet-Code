@@ -1,0 +1,13 @@
+class Solution(object):
+    def findDuplicates(self, nums):
+        arr=[]
+        for i in nums:
+            if (nums.count(i)>1):
+                arr.append(i)
+        arr.sort()
+        s=set(arr)
+        ans=[]
+        for i in s:
+            ans.append(i)
+        return ans
+        

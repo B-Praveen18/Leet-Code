@@ -1,0 +1,26 @@
+class Solution:
+    def solveNQueens(self, n: int) -> List[List[str]]:
+        result = []
+        rows, cols, posd, negd = set(), set(), set(), set()
+        l = [["."] * n for i in range(n)]
+        def bt(i):
+            if i == n:
+                arr = ["".join(x) for x in l]
+                result.append(arr)
+                return
+            for j in range(n):
+                if i in rows or j in cols or i + j in posd or i - j in negd or l[i][j] == 'Q':
+                    continue
+                l[i][j] = 'Q'
+                rows.add(i)
+                cols.add(j)
+                posd.add(i + j)
+                negd.add(i - j)
+                bt(i + 1)
+                l[i][j] = '.'
+                rows.discard(i)
+                cols.discard(j)
+                posd.discard(i + j)
+                negd.discard(i - j)
+        bt(0)
+        return result

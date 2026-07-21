@@ -1,0 +1,10 @@
+from collections import Counter
+
+class Solution(object):
+    def topKFrequent(self, nums, k):
+        # Count the frequency of each number
+        counts = Counter(nums)
+        
+        # Extract the k most common numbers
+        # most_common(k) returns a list of tuples: [(num, frequency)]
+        return [item[0] for item in counts.most_common(k)]
